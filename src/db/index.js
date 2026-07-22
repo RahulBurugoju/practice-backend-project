@@ -1,5 +1,10 @@
+// import { webcrypto } from 'crypto'
 import mongoose from 'mongoose'
 import { DB_NAME } from '../constants.js'; 
+
+// if (!globalThis.crypto) {
+//   globalThis.crypto = webcrypto
+// }
 
 const connectDB = async ()=>{
     try {

@@ -49,6 +49,10 @@ const userSchema = new Schema({
 
 userSchema.pre("save", async function() {
     // password has been encrypted
+    
+    //In Mongoose 9, async middleware no longer receives next, so calling next() results in:
+    // TypeError: next is not a function
+
     if(!this.isModified("password")) return ;
 
     this.password = await bcrypt.hash(this.password,10)
